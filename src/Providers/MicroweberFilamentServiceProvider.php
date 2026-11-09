@@ -52,12 +52,44 @@ class MicroweberFilamentServiceProvider extends \Illuminate\Support\ServiceProvi
         FilamentView::registerRenderHook(
             PanelsRenderHook::BODY_END,
             function (): HtmlString {
-                $mwAi = asset('modules/ai/js/mw-ai.js');
-                $sidebar = asset('vendor/microweber-packages/frontend-assets/build/ai-chat-sidebar.js');
+                // Admin PANEL only, admins only. This hook fires on EVERY panel's
+                // pages (admin, checkout, profile, vendor) and even the logged-out
+                // /admin login screen. The AI chat belongs to the admin panel, so
+                // render it only there AND only for an authenticated admin — never
+                // on the storefront checkout/profile/vendor panels.
+                if (!self::isAdminPanel() || !self::viewerIsAdmin()) {
+                    return new HtmlString('');
+                }
+
+                // Cache-bust with the built file's mtime so a rebuilt bundle is
+                // never served stale from the browser cache (these assets carry
+                // no content hash in their filename).
+                $ver = function (string $rel): string {
+                    $path = public_path($rel);
+                    $url = asset($rel);
+                    return is_file($path) ? ($url . '?v=' . filemtime($path)) : $url;
+                };
+                $mwAi = $ver('modules/ai/js/mw-ai.js');
+                $sidebar = $ver('vendor/microweber-packages/frontend-assets/build/ai-chat-sidebar.js');
                 $title = json_encode('AI assistant');
-                $html = <<<HTML
+
+                // The sidebar scripts load on every admin page (the chat service +
+                // streaming client). The floating trigger is the admin's AI entry
+                // point — but in LIVE EDIT the right-rail AI (chat) button is the
+                // SINGLE entry point, so we omit the floating bubble there to avoid
+                // a double button (the Live-Edit app imports the same sidebar
+                // service itself, so the chat still works). task-2026-11-07.
+                $scripts = <<<HTML
 <script src="{$mwAi}"></script>
 <script src="{$sidebar}"></script>
+HTML;
+
+                $isLiveEdit = str_contains((string) request()->path(), 'live-edit');
+                if ($isLiveEdit) {
+                    return new HtmlString($scripts);
+                }
+
+                $button = <<<HTML
 <button type="button" id="mw-admin-ai-chat-trigger" aria-label="AI assistant" title="AI assistant"
     style="position:fixed;right:20px;bottom:20px;z-index:2147482000;width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;background:#182433;color:#fff;box-shadow:0 6px 24px rgba(24,36,51,.28);display:flex;align-items:center;justify-content:center;">
     <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
@@ -73,7 +105,7 @@ class MicroweberFilamentServiceProvider extends \Illuminate\Support\ServiceProvi
 </script>
 HTML;
 
-                return new HtmlString($html);
+                return new HtmlString($scripts . $button);
             },
         );
 
@@ -240,5 +272,39 @@ HTML
             __DIR__ . '/../resources/views/filament-infolists',
             'filament-infolists'
         );
+    }
+
+    /**
+     * True only when the current viewer is an authenticated admin. Used to gate
+     * the AI chat entry point so it never renders on the logged-out admin login
+     * screen (or for a non-admin session). Best-effort / never throws.
+     */
+    /**
+     * True only while rendering inside the admin panel — so the AI chat entry
+     * point never appears on the storefront checkout / profile / vendor panels.
+     */
+    protected static function isAdminPanel(): bool
+    {
+        try {
+            $panel = \Filament\Facades\Filament::getCurrentPanel();
+
+            return $panel !== null && $panel->getId() === 'admin';
+        } catch (\Throwable $e) {
+            return false;
+        }
+    }
+
+    protected static function viewerIsAdmin(): bool
+    {
+        try {
+            if (function_exists('is_admin')) {
+                return (bool) is_admin();
+            }
+            $user = auth()->user();
+
+            return $user !== null && (int) ($user->is_admin ?? 0) === 1;
+        } catch (\Throwable $e) {
+            return false;
+        }
     }
 }

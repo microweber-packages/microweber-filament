@@ -31,98 +31,56 @@ parameters:
 			path: src/Forms/Components/MwInputSliderGroup.php
 
 		-
-			message: '#^Function category_link not found\.$#'
-			identifier: function.notFound
-			count: 2
-			path: src/Forms/Components/MwLinkPicker.php
-
-		-
-			message: '#^Function content_link not found\.$#'
-			identifier: function.notFound
-			count: 2
-			path: src/Forms/Components/MwLinkPicker.php
-
-		-
-			message: '#^Access to property \$created_by on an unknown class Modules\\Media\\Models\\Media\.$#'
-			identifier: class.notFound
-			count: 2
-			path: src/Forms/Components/MwMediaBrowser.php
-
-		-
-			message: '#^Access to property \$filename on an unknown class Modules\\Media\\Models\\Media\.$#'
-			identifier: class.notFound
-			count: 2
-			path: src/Forms/Components/MwMediaBrowser.php
-
-		-
-			message: '#^Access to property \$rel_id on an unknown class Modules\\Media\\Models\\Media\.$#'
-			identifier: class.notFound
-			count: 2
-			path: src/Forms/Components/MwMediaBrowser.php
-
-		-
-			message: '#^Access to property \$rel_type on an unknown class Modules\\Media\\Models\\Media\.$#'
-			identifier: class.notFound
-			count: 2
-			path: src/Forms/Components/MwMediaBrowser.php
-
-		-
-			message: '#^Access to property \$session_id on an unknown class Modules\\Media\\Models\\Media\.$#'
-			identifier: class.notFound
-			count: 2
-			path: src/Forms/Components/MwMediaBrowser.php
-
-		-
-			message: '#^Call to method save\(\) on an unknown class Modules\\Media\\Models\\Media\.$#'
-			identifier: class.notFound
+			message: '#^Access to an undefined property Modules\\Media\\Models\\Media\:\:\$created_by\.$#'
+			identifier: property.notFound
 			count: 1
 			path: src/Forms/Components/MwMediaBrowser.php
 
 		-
-			message: '#^Call to static method find\(\) on an unknown class Modules\\Media\\Models\\Media\.$#'
-			identifier: class.notFound
+			message: '#^Access to an undefined property Modules\\Media\\Models\\Media\:\:\$filename\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Forms/Components/MwMediaBrowser.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Media\\Models\\Media\:\:\$rel_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Forms/Components/MwMediaBrowser.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Media\\Models\\Media\:\:\$rel_type\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Forms/Components/MwMediaBrowser.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Media\\Models\\Media\:\:\$session_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: src/Forms/Components/MwMediaBrowser.php
+
+		-
+			message: '#^Call to an undefined static method Modules\\Ai\\Facades\\AiImages\:\:isImageGenerationAvailable\(\)\.$#'
+			identifier: staticMethod.notFound
+			count: 1
+			path: src/Forms/Components/MwMediaBrowser.php
+
+		-
+			message: '#^Call to an undefined static method Modules\\Media\\Models\\Media\:\:find\(\)\.$#'
+			identifier: staticMethod.notFound
 			count: 4
 			path: src/Forms/Components/MwMediaBrowser.php
 
 		-
-			message: '#^Call to static method generateImage\(\) on an unknown class Modules\\Ai\\Facades\\AiImages\.$#'
-			identifier: class.notFound
-			count: 1
-			path: src/Forms/Components/MwMediaBrowser.php
-
-		-
-			message: '#^Call to static method isImageGenerationAvailable\(\) on an unknown class Modules\\Ai\\Facades\\AiImages\.$#'
-			identifier: class.notFound
-			count: 1
-			path: src/Forms/Components/MwMediaBrowser.php
-
-		-
-			message: '#^Call to static method query\(\) on an unknown class Modules\\Content\\Models\\Content\.$#'
-			identifier: class.notFound
-			count: 1
-			path: src/Forms/Components/MwMediaBrowser.php
-
-		-
-			message: '#^Call to static method query\(\) on an unknown class Modules\\Media\\Models\\Media\.$#'
-			identifier: class.notFound
-			count: 1
-			path: src/Forms/Components/MwMediaBrowser.php
-
-		-
-			message: '#^Call to static method sendToChat\(\) on an unknown class Modules\\Ai\\Facades\\Ai\.$#'
-			identifier: class.notFound
-			count: 1
-			path: src/Forms/Components/MwMediaBrowser.php
-
-		-
-			message: '#^Call to static method where\(\) on an unknown class Modules\\Media\\Models\\Media\.$#'
-			identifier: class.notFound
+			message: '#^Call to an undefined static method Modules\\Media\\Models\\Media\:\:where\(\)\.$#'
+			identifier: staticMethod.notFound
 			count: 4
 			path: src/Forms/Components/MwMediaBrowser.php
 
 		-
-			message: '#^Call to static method whereIn\(\) on an unknown class Modules\\Media\\Models\\Media\.$#'
-			identifier: class.notFound
+			message: '#^Call to an undefined static method Modules\\Media\\Models\\Media\:\:whereIn\(\)\.$#'
+			identifier: staticMethod.notFound
 			count: 1
 			path: src/Forms/Components/MwMediaBrowser.php
 
@@ -131,30 +89,6 @@ parameters:
 			identifier: property.nonObject
 			count: 1
 			path: src/Forms/Components/MwMediaBrowser.php
-
-		-
-			message: '#^Function morph_name not found\.$#'
-			identifier: function.notFound
-			count: 1
-			path: src/Forms/Components/MwMediaBrowser.php
-
-		-
-			message: '#^Function user_id not found\.$#'
-			identifier: function.notFound
-			count: 1
-			path: src/Forms/Components/MwMediaBrowser.php
-
-		-
-			message: '#^Instantiated class Modules\\Media\\Models\\Media not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: src/Forms/Components/MwMediaBrowser.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Foundation\\Application\:\:\$layouts_manager\.$#'
-			identifier: property.notFound
-			count: 4
-			path: src/Forms/Components/MwSelectTemplateForPage.php
 
 		-
 			message: '#^Anonymous function has an unused use \$activeSiteTemplateInputName\.$#'
@@ -176,12 +110,6 @@ parameters:
 
 		-
 			message: '#^Function site_templates not found\.$#'
-			identifier: function.notFound
-			count: 1
-			path: src/Forms/Components/MwSelectTemplateForPage.php
-
-		-
-			message: '#^Function template_name not found\.$#'
 			identifier: function.notFound
 			count: 1
 			path: src/Forms/Components/MwSelectTemplateForPage.php
@@ -271,24 +199,6 @@ parameters:
 			path: src/Http/Middleware/AuthenticateAdmin.php
 
 		-
-			message: '#^Function is_admin not found\.$#'
-			identifier: function.notFound
-			count: 1
-			path: src/Http/Middleware/AuthenticateAdmin.php
-
-		-
-			message: '#^Function is_logged not found\.$#'
-			identifier: function.notFound
-			count: 1
-			path: src/Http/Middleware/AuthenticateAdmin.php
-
-		-
-			message: '#^Function mw_is_installed not found\.$#'
-			identifier: function.notFound
-			count: 1
-			path: src/Http/Middleware/AuthenticateAdmin.php
-
-		-
 			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Factory\:\:check\(\)\.$#'
 			identifier: method.notFound
 			count: 1
@@ -301,80 +211,20 @@ parameters:
 			path: src/MicroweberTheme.php
 
 		-
-			message: '#^Function is_admin not found\.$#'
-			identifier: function.notFound
-			count: 2
-			path: src/Models/Contracts/FilamentUser.php
-
-		-
 			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Factory\:\:user\(\)\.$#'
 			identifier: method.notFound
 			count: 1
 			path: src/MwFilamentImport.php
 
 		-
-			message: '#^Method MicroweberPackages\\Filament\\Plugins\\FilamentTranslatableFieldsPlugin\:\:get\(\) should return static\(MicroweberPackages\\Filament\\Plugins\\FilamentTranslatableFieldsPlugin\) but returns Filament\\Contracts\\Plugin\.$#'
+			message: '#^Method MicroweberPackages\\Filament\\Plugins\\FilamentTranslatableFieldsPlugin\:\:get\(\) should return static\(MicroweberPackages\\Filament\\Plugins\\FilamentTranslatableFieldsPlugin\) but returns Filament\\Contracts\\Plugin\|Filament\\FilamentManager\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Plugins/FilamentTranslatableFieldsPlugin.php
 
 		-
-			message: '#^Class App\\Models\\User not found\.$#'
-			identifier: class.notFound
-			count: 2
-			path: src/Plugins/MicroweberFilamentSocialitePlugin.php
-
-		-
-			message: '#^Function user_name not found\.$#'
-			identifier: function.notFound
-			count: 1
-			path: src/Providers/FilamentManager.php
-
-		-
 			message: '#^Call to an undefined static method MicroweberPackages\\Module\\Facades\\ModuleAdmin\:\:getSettingsComponents\(\)\.$#'
 			identifier: staticMethod.notFound
-			count: 1
-			path: src/Support/MwDialogRegistry.php
-
-		-
-			message: '#^Class Modules\\Btn\\Filament\\BtnModuleSettings not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: src/Support/MwDialogRegistry.php
-
-		-
-			message: '#^Class Modules\\Content\\Filament\\ContentModuleSettings not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: src/Support/MwDialogRegistry.php
-
-		-
-			message: '#^Class Modules\\Pictures\\Filament\\PicturesModuleSettings not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: src/Support/MwDialogRegistry.php
-
-		-
-			message: '#^Class Modules\\Post\\Filament\\PostModuleSettings not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: src/Support/MwDialogRegistry.php
-
-		-
-			message: '#^Class Modules\\Product\\Filament\\ProductsModuleSettings not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: src/Support/MwDialogRegistry.php
-
-		-
-			message: '#^Class Modules\\Slider\\Filament\\SliderModuleSettings not found\.$#'
-			identifier: class.notFound
-			count: 1
-			path: src/Support/MwDialogRegistry.php
-
-		-
-			message: '#^Class Modules\\Video\\Filament\\VideoModuleSettings not found\.$#'
-			identifier: class.notFound
 			count: 1
 			path: src/Support/MwDialogRegistry.php
 
